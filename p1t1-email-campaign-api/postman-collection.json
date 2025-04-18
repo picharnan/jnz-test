@@ -13,7 +13,7 @@
         "header": [{ "key": "Content-Type", "value": "application/json" }],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"uuid\": \"bfb1398f-cd4c-4f4f-b543-92f8fb7ea0b1\",\n  \"slug\": \"summer-campaign\",\n  \"name\": \"Summer Promo\",\n  \"subject\": \"🔥 Hot Deals This Summer!\",\n  \"thumbnail\": \"https://example.com/thumb.jpg\",\n  \"social_cover\": \"{\\\"fb\\\":\\\"https://fb.com/image.jpg\\\",\\\"tw\\\":\\\"https://twitter.com/image.jpg\\\"}\",\n  \"line\": \"@summer\",\n  \"email\": \"promo@example.com\",\n  \"content\": \"<h1>Welcome to Summer</h1>\",\n  \"status\": \"active\",\n  \"start_time\": \"2025-04-19T08:00:00.000Z\",\n  \"stop_time\": \"2025-04-30T08:00:00.000Z\"\n}"
+          "raw": "{\n  \"slug\": \"summer-campaign\",\n  \"name\": \"Summer Promo\",\n  \"subject\": \"🔥 Hot Deals This Summer!\",\n  \"thumbnail\": \"https://example.com/thumb.jpg\",\n  \"social_cover\": \"{\\\"fb\\\":\\\"https://fb.com/image.jpg\\\",\\\"tw\\\":\\\"https://twitter.com/image.jpg\\\"}\",\n  \"line\": \"@summer\",\n  \"email\": \"promo@example.com\",\n  \"content\": \"<h1>Welcome to Summer</h1>\",\n  \"status\": \"active\",\n  \"start_time\": \"2025-04-19T08:00:00.000Z\",\n  \"stop_time\": \"2025-04-30T08:00:00.000Z\"\n}"
         },
         "url": {
           "raw": "http://localhost:3000/v1/email-campaign",
