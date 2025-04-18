@@ -7,6 +7,7 @@ import {
   IsEnum,
   IsJSON,
   IsDateString,
+  IsNotEmpty,
 } from 'class-validator';
 
 export enum CampaignStatus {
@@ -20,6 +21,7 @@ export class CreateEmailCampaignDto {
   slug: string;
 
   @ApiProperty({ description: 'Name of the campaign', example: 'Summer Promo' })
+  @IsNotEmpty()
   @IsString()
   name: string;
 
@@ -27,6 +29,7 @@ export class CreateEmailCampaignDto {
     description: 'Email subject',
     example: '🔥 Hot Deals This Summer!',
   })
+  @IsNotEmpty()
   @IsString()
   subject: string;
 
