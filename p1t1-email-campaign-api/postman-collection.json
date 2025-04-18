@@ -1,0 +1,88 @@
+{
+  "info": {
+    "name": "JNZ-email campaign",
+    "_postman_id": "e7b8c678-bc9b-46a3-8e0b-campaign-crud",
+    "description": "CRUD operations for EmailCampaign",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Email Campaign",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"uuid\": \"bfb1398f-cd4c-4f4f-b543-92f8fb7ea0b1\",\n  \"slug\": \"summer-campaign\",\n  \"name\": \"Summer Promo\",\n  \"subject\": \"🔥 Hot Deals This Summer!\",\n  \"thumbnail\": \"https://example.com/thumb.jpg\",\n  \"social_cover\": \"{\\\"fb\\\":\\\"https://fb.com/image.jpg\\\",\\\"tw\\\":\\\"https://twitter.com/image.jpg\\\"}\",\n  \"line\": \"@summer\",\n  \"email\": \"promo@example.com\",\n  \"content\": \"<h1>Welcome to Summer</h1>\",\n  \"status\": \"active\",\n  \"start_time\": \"2025-04-19T08:00:00.000Z\",\n  \"stop_time\": \"2025-04-30T08:00:00.000Z\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/v1/email-campaign",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["v1", "email-campaign"]
+        }
+      }
+    },
+    {
+      "name": "Get All Campaigns",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/v1/email-campaign",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["v1", "email-campaign"]
+        }
+      }
+    },
+    {
+      "name": "Get One Campaign",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/v1/email-campaign/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["v1", "email-campaign", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update Campaign",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"subject\": \"Updated Summer Promo Subject\",\n  \"status\": \"inactive\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/v1/email-campaign/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["v1", "email-campaign", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Campaign",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/v1/email-campaign/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["v1", "email-campaign", "1"]
+        }
+      }
+    }
+  ]
+}
