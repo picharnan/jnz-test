@@ -25,15 +25,19 @@ export class EmailCampaignRepository {
   }
 
   findAll() {
-    return this.campaigns;
+    return this.campaigns.filter((i) => i.deleted_at === undefined);
   }
 
   findOne(id: number) {
-    return this.campaigns.find((c) => c.id === id);
+    return this.campaigns.find(
+      (c) => c.id === id && c.deleted_at === undefined,
+    );
   }
 
   update(id: number, dto: Partial<CreateEmailCampaignDto>) {
-    const index = this.campaigns.findIndex((c) => c.id === id);
+    const index = this.campaigns.findIndex(
+      (c) => c.id === id && c.deleted_at === undefined,
+    );
     if (index === -1) return null;
 
     const updated = {
@@ -48,7 +52,9 @@ export class EmailCampaignRepository {
   }
 
   delete(id: number) {
-    const index = this.campaigns.findIndex((c) => c.id === id);
+    const index = this.campaigns.findIndex(
+      (c) => c.id === id && c.deleted_at === undefined,
+    );
     if (index === -1) return null;
 
     const deleted = {
