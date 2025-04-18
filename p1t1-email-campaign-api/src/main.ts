@@ -2,9 +2,21 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { ConfigService } from '@nestjs/config';
 import { VersioningType } from '@nestjs/common';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  // Set up Swagger
+  const options = new DocumentBuilder()
+    .setTitle('Email Campaign API')
+    .setDescription('CRUD operations for Email Campaigns')
+    .setVersion('1.0')
+    .addTag('email-campaign')
+    .build();
+
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('api', app, document);
 
   // allow all origin cors
   app.enableCors({
