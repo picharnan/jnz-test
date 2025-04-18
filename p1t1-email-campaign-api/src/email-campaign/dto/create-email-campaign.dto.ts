@@ -15,13 +15,6 @@ export enum CampaignStatus {
 }
 
 export class CreateEmailCampaignDto {
-  @ApiProperty({
-    description: 'Unique identifier for the campaign',
-    example: 'bfb1398f-cd4c-4f4f-b543-92f8fb7ea0b1',
-  })
-  @IsUUID()
-  uuid: string;
-
   @ApiProperty({ description: 'Slug for campaign', example: 'summer-campaign' })
   @IsString()
   slug: string;

@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { EmailCampaignService } from './email-campaign.service';
 import { CreateEmailCampaignDto } from './dto/create-email-campaign.dto';
+import { UpdateEmailCampaignDto } from './dto/update-email-campaign.dto';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 @ApiTags('email-campaign')
@@ -49,7 +50,7 @@ export class EmailCampaignController {
   @ApiResponse({ status: 404, description: 'Campaign not found' })
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() dto: Partial<CreateEmailCampaignDto>,
+    @Body() dto: Partial<UpdateEmailCampaignDto>,
   ) {
     return this.service.update(id, dto);
   }

@@ -3,6 +3,7 @@ import {
   CreateEmailCampaignDto,
   CampaignStatus,
 } from '../dto/create-email-campaign.dto';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class EmailCampaignRepository {
@@ -13,6 +14,7 @@ export class EmailCampaignRepository {
     const now = new Date().toISOString();
     const campaign = {
       id: this.idCounter++,
+      uuid: uuidv4(),
       ...dto,
       created_at: now,
       updated_at: now,
