@@ -55,8 +55,9 @@ export class CreateEmailCampaignDto {
     description: 'Schedule time of the campaign',
     example: '2025-04-30T08:00:00.000Z',
   })
+  @IsOptional()
   @IsDateString()
-  schedule: string;
+  schedule?: string;
 
   @ApiProperty({
     description: 'Time when campaign is deleted',

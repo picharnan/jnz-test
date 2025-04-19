@@ -22,9 +22,20 @@ class EmailCampaignService {
         parseEmailCampaignTime
       );
       return list;
-      return list;
     } catch (ex) {
       throw new Error(`getEmailCampaignList failed: ${(ex as Error).message}`);
+    }
+  }
+
+  async createEmailCampaign(input: EmailCampaign): Promise<EmailCampaign> {
+    try {
+      const result = await wretch(`${this.apiEndpoint}/v1/email-campaign`)
+        .addon(QueryStringAddon)
+        .post(input)
+        .json();
+      return parseEmailCampaignTime(result);
+    } catch (ex) {
+      throw new Error(`createEmailCampaign failed: ${(ex as Error).message}`);
     }
   }
 }

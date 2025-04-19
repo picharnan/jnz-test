@@ -1,5 +1,4 @@
 import SidebarLayout from "@/layout/SidebarLayout";
-
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -14,9 +13,10 @@ import {
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
 import { DateTimePicker24Hr } from "@/components/DateTimePicker24Hr";
 import { RichTextEditor } from "@/components/RichTextEditor";
+import EmailCampaignService from "@/services/email-campaign.service";
+import { useState } from "react";
 
 interface EmailCampaignFormMode {
   mode: "create" | "edit";
@@ -44,13 +44,21 @@ export const EmailCampaignForm = (props: EmailCampaignFormMode) => {
     },
   });
   const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    toast.success("Email campaign created successfully!");
+  const onSubmit = async (data: FormData) => {
+    try {
+      setIsSubmitting(true);
+      const result = await EmailCampaignService.createEmailCampaign(data);
+      toast.success("Email campaign created successfully!");
+      setTimeout(() => {
+        navigate("/email-campaign");
+      }, 1000);
+    } catch (ex) {
+      setIsSubmitting(false);
+      toast.error(`Create failed,${ex?.message}`);
+    }
   };
-
-  const [contentValue, setContentValue] = useState("");
 
   const statusInput = watch("status");
   const emailInput = watch("email") || "";
@@ -155,10 +163,13 @@ export const EmailCampaignForm = (props: EmailCampaignFormMode) => {
               variant="outline"
               type="button"
               onClick={() => navigate("/email-campaign")}
+              disabled={isSubmitting}
             >
               Cancel
             </Button>
-            <Button type="submit">Create</Button>
+            <Button disabled={isSubmitting} type="submit">
+              Create
+            </Button>
           </div>
         </form>
       </div>

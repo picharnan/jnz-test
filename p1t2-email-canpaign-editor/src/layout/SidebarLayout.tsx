@@ -1,6 +1,7 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Toaster } from "@/components/ui/sonner";
 
 interface SidebarLayoutProps {
   children: React.ReactNode;
@@ -12,7 +13,6 @@ export default function SidebarLayout(props: SidebarLayoutProps) {
   return (
     <SidebarProvider>
       <AppSidebar />
-
       <main className="flex flex-col w-full">
         <header className="flex w-full h-[40px] p-2">
           <div className="flex">
@@ -30,6 +30,7 @@ export default function SidebarLayout(props: SidebarLayoutProps) {
         </header>
         <div className="p-2">{props.children}</div>
       </main>
+      <Toaster position="top-right" />
     </SidebarProvider>
   );
 }
