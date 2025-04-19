@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "e81a2721-a9cb-42a9-abf1-f1ecfb9e3812",
+		"name": "JNZ-email-campaign",
+		"description": "CRUD operations for EmailCampaign",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "3036318"
+	},
+	"item": [
+		{
+			"name": "Create Email Campaign",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"campaign_name\": \"Summer Promo\",\n  \"subject\": \"🔥 Hot Deals This Summer!\",\n  \"line\": \"@summer\",\n  \"email\": \"promo@example.com\",\n  \"content\": \"<h1>Welcome to Summer</h1>\",\n  \"status\": \"active\",\n  \"schedule\": \"2025-04-19T08:00:00.00+07:00\"\n}"
+				},
+				"url": "http://localhost:3000/v1/email-campaign"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Campaigns",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/v1/email-campaign"
+			},
+			"response": []
+		},
+		{
+			"name": "Get One Campaign",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/v1/email-campaign/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Campaign",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"status\": \"inactive\"\n}"
+				},
+				"url": "http://localhost:3000/v1/email-campaign/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Campaign",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:3000/v1/email-campaign/1"
+			},
+			"response": []
+		}
+	]
+}
