@@ -16,14 +16,10 @@ export enum CampaignStatus {
 }
 
 export class CreateEmailCampaignDto {
-  @ApiProperty({ description: 'Slug for campaign', example: 'summer-campaign' })
-  @IsString()
-  slug: string;
-
   @ApiProperty({ description: 'Name of the campaign', example: 'Summer Promo' })
   @IsNotEmpty()
   @IsString()
-  name: string;
+  campaign_name: string;
 
   @ApiProperty({
     description: 'Email subject',
@@ -32,21 +28,6 @@ export class CreateEmailCampaignDto {
   @IsNotEmpty()
   @IsString()
   subject: string;
-
-  @ApiProperty({
-    description: 'Thumbnail URL',
-    example: 'https://example.com/thumb.jpg',
-  })
-  @IsString()
-  thumbnail: string;
-
-  @ApiProperty({
-    description: 'Social cover JSON',
-    example:
-      '{"fb":"https://fb.com/image.jpg","tw":"https://twitter.com/image.jpg"}',
-  })
-  @IsJSON()
-  social_cover: string;
 
   @ApiProperty({ description: 'Line for communication', example: '@summer' })
   @IsString()
@@ -75,18 +56,11 @@ export class CreateEmailCampaignDto {
   status: CampaignStatus;
 
   @ApiProperty({
-    description: 'Start time of the campaign',
-    example: '2025-04-19T08:00:00.000Z',
-  })
-  @IsDateString()
-  start_time: string;
-
-  @ApiProperty({
-    description: 'End time of the campaign',
+    description: 'Schedule time of the campaign',
     example: '2025-04-30T08:00:00.000Z',
   })
   @IsDateString()
-  stop_time: string;
+  schedule: string;
 
   @ApiProperty({
     description: 'Time when campaign is deleted',
