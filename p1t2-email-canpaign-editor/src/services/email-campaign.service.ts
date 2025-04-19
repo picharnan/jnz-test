@@ -18,9 +18,9 @@ class EmailCampaignService {
         .query(page)
         .get(`${this.apiEndpoint}/v1/email-campaign`)
         .json();
-      const list: EmailCampaign[] = (rawList as any[]).map(parseEmailCampaign);
-      console.log(list);
-      // return rawList;
+      const list: EmailCampaign[] = (rawList as any[]).map(
+        parseEmailCampaignTime
+      );
       return list;
       return list;
     } catch (ex) {
@@ -31,7 +31,7 @@ class EmailCampaignService {
 
 export default new EmailCampaignService();
 
-function parseEmailCampaign(raw: any): EmailCampaign {
+function parseEmailCampaignTime(raw: any): EmailCampaign {
   return {
     ...raw,
     schedule: raw.schedule ? new Date(raw.schedule) : undefined,

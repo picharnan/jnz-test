@@ -14,16 +14,9 @@ import {
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Textarea } from "@/components/ui/textarea";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { format } from "date-fns";
 import { useState } from "react";
 import { DateTimePicker24Hr } from "@/components/DateTimePicker24Hr";
-// import { Editor } from '@/components/editor'
+import { RichTextEditor } from "@/components/RichTextEditor";
 
 interface EmailCampaignFormMode {
   mode: "create" | "edit";
@@ -57,6 +50,8 @@ export const EmailCampaignForm = (props: EmailCampaignFormMode) => {
     toast.success("Email campaign created successfully!");
   };
 
+  const [contentValue, setContentValue] = useState("");
+
   const statusInput = watch("status");
   const emailInput = watch("email") || "";
   const emailList = emailInput
@@ -89,6 +84,11 @@ export const EmailCampaignForm = (props: EmailCampaignFormMode) => {
           <div>
             <Label className="mb-2">Email Content</Label>
             {/* <Editor onChange={(value) => setValue('content', value)} /> */}
+            <RichTextEditor
+              onChange={(content) => {
+                setValue("content", content);
+              }}
+            />
             {errors.content && (
               <p className="text-red-500 text-sm">This field is required</p>
             )}
