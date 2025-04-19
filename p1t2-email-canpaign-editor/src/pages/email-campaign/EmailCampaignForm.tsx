@@ -1,16 +1,15 @@
-import React from "react";
+import SidebarLayout from "@/layout/SidebarLayout";
 
 interface EmailCampaignFormMode {
   mode: "create" | "edit";
 }
 
-const EmailCampaignForm = (props: EmailCampaignFormMode) => {
-  if (props.mode === "edit") {
-    return <div>Edit</div>;
-  }
-  if (props.mode === "create") {
-    return <div>Create</div>;
-  }
+export const EmailCampaignForm = (props: EmailCampaignFormMode) => {
+  return (
+    <SidebarLayout title="Email camapgin / Create email campaign">
+      <div>Form</div>
+    </SidebarLayout>
+  );
 };
 
 export default EmailCampaignForm;

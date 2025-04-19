@@ -29,10 +29,6 @@ export class CreateEmailCampaignDto {
   @IsString()
   subject: string;
 
-  @ApiProperty({ description: 'Line for communication', example: '@summer' })
-  @IsString()
-  line: string;
-
   @ApiProperty({
     description: 'Email address for communication',
     example: 'promo@example.com',

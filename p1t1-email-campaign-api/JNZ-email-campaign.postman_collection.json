@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"campaign_name\": \"Summer Promo\",\n  \"subject\": \"🔥 Hot Deals This Summer!\",\n  \"line\": \"@summer\",\n  \"email\": \"promo@example.com\",\n  \"content\": \"<h1>Welcome to Summer</h1>\",\n  \"status\": \"active\",\n  \"schedule\": \"2025-04-19T08:00:00.00+07:00\"\n}"
+					"raw": "{\n  \"campaign_name\": \"Summer Promo\",\n  \"subject\": \"🔥 Hot Deals This Summer!\",\n  \"email\": \"promo@example.com,test@test.com\",\n  \"content\": \"<h1>Welcome to Summer</h1>\",\n  \"status\": \"active\",\n  \"schedule\": \"2025-04-19T08:00:00.00+07:00\"\n}"
 				},
 				"url": "http://localhost:3000/v1/email-campaign"
 			},

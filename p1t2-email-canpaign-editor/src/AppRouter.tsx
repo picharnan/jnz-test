@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { Suspense } from "react";
 import { EmailCampaignList } from "@/pages/email-campaign/EmailCampaignList";
+import { EmailCampaignForm } from "@/pages/email-campaign/EmailCampaignForm";
 
 function Loading() {
   return <h2>Loading...</h2>;
@@ -26,6 +27,10 @@ const AppRouters = () => {
     {
       path: "/email-campaign",
       element: <EmailCampaignList />,
+    },
+    {
+      path: "/email-campaign/new",
+      element: <EmailCampaignForm mode="create" />,
     },
     {
       path: "*",
