@@ -16,6 +16,7 @@ export class EmailCampaignRepository {
       id: this.idCounter++,
       uuid: uuidv4(),
       ...dto,
+      schedule: new Date(dto.schedule).toISOString(),
       created_at: now,
       updated_at: now,
       version: 1,
