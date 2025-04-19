@@ -83,12 +83,13 @@ export const EmailCampaignForm = (props: EmailCampaignFormMode) => {
 
           <div>
             <Label className="mb-2">Email Content</Label>
-            {/* <Editor onChange={(value) => setValue('content', value)} /> */}
-            <RichTextEditor
-              onChange={(content) => {
-                setValue("content", content);
-              }}
-            />
+            <div className="h-[400px]">
+              <RichTextEditor
+                onChange={(content) => {
+                  setValue("content", content);
+                }}
+              />
+            </div>
             {errors.content && (
               <p className="text-red-500 text-sm">This field is required</p>
             )}
