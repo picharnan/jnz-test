@@ -21,7 +21,6 @@ const AppRouters = () => {
   const userRoutes: Array<RouteMapping> = [
     {
       path: "/",
-      // element: <>Home</>,
       element: <Navigate to="/email-campaign" />,
     },
     {

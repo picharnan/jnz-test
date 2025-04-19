@@ -49,7 +49,7 @@ export const EmailCampaignForm = (props: EmailCampaignFormMode) => {
   const onSubmit = async (data: FormData) => {
     try {
       setIsSubmitting(true);
-      const result = await EmailCampaignService.createEmailCampaign(data);
+      await EmailCampaignService.createEmailCampaign(data);
       toast.success("Email campaign created successfully!");
       setTimeout(() => {
         navigate("/email-campaign");
