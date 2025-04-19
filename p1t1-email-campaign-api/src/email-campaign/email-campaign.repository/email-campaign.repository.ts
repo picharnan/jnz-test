@@ -44,6 +44,9 @@ export class EmailCampaignRepository {
     const updated = {
       ...this.campaigns[index],
       ...dto,
+      schedule: dto.schedule
+        ? new Date(dto.schedule).toISOString()
+        : this.campaigns[index].schedule,
       updated_at: new Date().toISOString(),
       version: this.campaigns[index].version + 1,
     };
